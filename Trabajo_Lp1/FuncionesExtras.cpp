@@ -22,7 +22,6 @@ void mostrarOpcionesGenerales(char &c1, char &c2) {
     //      en interactur falta definir
     //      en usar C2 seria i el numero de iten a usar pero en caracter
     //      en salir C2 seria 0 ; 
-	//
 	 
     char opcion[10];
 	
