@@ -10,7 +10,6 @@ int opciones_contiene_palabra_mover(char opcion[], const char*pal) {
     for (int i = 0; opcion[i]; i++) {
         if (opcion[i] == ' ') opcion[i] = 0;
     }
-	
     return strcmp(opcion, pal);
 }
 
