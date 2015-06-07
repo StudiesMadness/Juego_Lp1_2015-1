@@ -13,3 +13,6 @@ Armadura::Armadura() {
 Armadura::Armadura(const Armadura& orig) {
 }
 
+Armadura::~Armadura() {
+}
+

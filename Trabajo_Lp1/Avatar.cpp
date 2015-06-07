@@ -8,9 +8,18 @@
 #include "Avatar.h"
 
 Avatar::Avatar() {
+    this->SetPosX(3);
+    this->SetPosY(3);
+    this->SetMaxVida(100);
 }
 
 Avatar::Avatar(const Avatar& orig) {
+    this->SetPosX(orig.GetPosX()) ; 
+    this->SetPosY(orig.GetPosY()) ; 
+    this->SetMaxVida(orig.GetMaxVida()) ; 
+}
+
+Avatar::~Avatar() {
 }
 
 

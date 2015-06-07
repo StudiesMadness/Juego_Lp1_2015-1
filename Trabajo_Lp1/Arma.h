@@ -19,7 +19,7 @@ private:
 public:
     Arma();
     Arma(const Arma& orig);
-   // virtual ~Arma();
+    virtual ~Arma();
 
 
 };

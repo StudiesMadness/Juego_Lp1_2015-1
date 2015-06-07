@@ -15,8 +15,11 @@ private:
 
 public:
     Dibujador();
-    Dibujador(const Dibujador& orig);
     virtual ~Dibujador();
+    void SetB(int B);
+    int GetB() const;
+    void SetA(int A);
+    int GetA() const;
 
 
 };

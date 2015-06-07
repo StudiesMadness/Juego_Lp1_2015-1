@@ -8,11 +8,28 @@
 #include "Dibujador.h"
 
 Dibujador::Dibujador() {
+    A = 3 ; 
+    B = 3 ; 
 }
 
-Dibujador::Dibujador(const Dibujador& orig) {
-}
+
 
 Dibujador::~Dibujador() {
+}
+
+void Dibujador::SetB(int B) {
+    this->B = B;
+}
+
+int Dibujador::GetB() const {
+    return B;
+}
+
+void Dibujador::SetA(int A) {
+    this->A = A;
+}
+
+int Dibujador::GetA() const {
+    return A;
 }
 

@@ -16,8 +16,7 @@ private:
 public:
     Armadura();
     Armadura(const Armadura& orig);
-    //virtual ~Armadura();
-
+    virtual ~Armadura();
 };
 
 #endif	/* ARMADURA_H */

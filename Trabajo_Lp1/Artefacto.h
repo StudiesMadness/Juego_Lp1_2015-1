@@ -8,15 +8,13 @@
 #ifndef ARTEFACTO_H
 #define	ARTEFACTO_H
 
-class Artefacto {  //Hereda a Arma , Armadura y PocionCuracion 
+class Artefacto { //Hereda a Arma , Armadura y PocionCuracion 
 private:
 
 public:
     Artefacto();
     Artefacto(const Artefacto& orig);
-    virtual ~Artefacto();
-
-
+    virtual ~Artefacto();        
 };
 
 #endif	/* ARTEFACTO_H */

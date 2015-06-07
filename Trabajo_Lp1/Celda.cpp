@@ -7,12 +7,12 @@
 
 #include "Celda.h"
 
-Celda::Celda() {
+
+void Celda::SetTipo(int tipo) {
+    this->tipo = tipo;
 }
 
-Celda::Celda(const Celda& orig) {
-}
-
-Celda::~Celda() {
+int Celda::GetTipo() const {
+    return tipo;
 }
 

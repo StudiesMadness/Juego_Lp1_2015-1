@@ -10,14 +10,12 @@
 #define	SACO_H
 
 class Saco {
-    private:
-        Artefacto artefacto[];
+private:
+    Artefacto artefacto[];
 public:
     Saco();
     Saco(const Saco& orig);
     virtual ~Saco();
-
-
 };
 
 #endif	/* SACO_H */

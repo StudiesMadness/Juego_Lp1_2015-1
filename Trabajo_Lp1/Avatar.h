@@ -10,12 +10,12 @@
 
 class Avatar : public Entidad{
 private:
-
+         
 
 public:
     Avatar();
     Avatar(const Avatar& orig);
-   // virtual ~Avatar();
+    virtual ~Avatar();
 
 };
 

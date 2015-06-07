@@ -16,7 +16,7 @@ private:
 public:
     Monstruo();
     Monstruo(const Monstruo& orig);
-    //virtual ~Monstruo();
+    virtual ~Monstruo();
 
 
 };

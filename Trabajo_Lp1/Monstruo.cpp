@@ -13,4 +13,7 @@ Monstruo::Monstruo() {
 Monstruo::Monstruo(const Monstruo& orig) {
 }
 
+Monstruo::~Monstruo() {
+
+}
 

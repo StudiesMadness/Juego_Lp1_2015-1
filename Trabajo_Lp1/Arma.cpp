@@ -13,3 +13,6 @@ Arma::Arma() {
 Arma::Arma(const Arma& orig) {
 }
 
+Arma::~Arma() {
+
+}

@@ -8,15 +8,16 @@
 #ifndef GESTORLABERINTO_H
 #define	GESTORLABERINTO_H
 
+#include "Laberinto.h"
+
 class GestorLaberinto {
 private:
-    
+
 public:
+    Laberinto crear(char *);
     GestorLaberinto();
     GestorLaberinto(const GestorLaberinto& orig);
     virtual ~GestorLaberinto();
-
-
 };
 
 #endif	/* GESTORLABERINTO_H */

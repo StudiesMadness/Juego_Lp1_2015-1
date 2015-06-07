@@ -21,8 +21,19 @@ public:
     Entidad();
     Entidad(const Entidad& orig);
     virtual ~Entidad();
-
-
+    
+    void SetSaco(Saco saco);
+    Saco GetSaco() const;
+    void SetNombre(char* nombre);
+    char* GetNombre() const;
+    void SetVidaActual(int VidaActual);
+    int GetVidaActual() const;
+    void SetMaxVida(int maxVida);
+    int GetMaxVida() const;
+    void SetPosX(int posX);
+    int GetPosX() const;
+    void SetPosY(int posY);
+    int GetPosY() const;
 };
 
 #endif	/* ENTIDAD_H */

@@ -16,18 +16,28 @@
 
 class Juego {
 private:
-    Avatar avatar[];
-    Monstruo monstruo[];
+    Avatar avatar;
+    Monstruo *monstruo;
     Dibujador dibujador;
-    Laberinto laberinto[];
     GestorLaberinto gestorLaberinto;
-    
+    Laberinto LaberintoActual;
+    int posLaberintoActual;
+    Laberinto *arreLaberintos;
 public:
     Juego();
     Juego(const Juego& orig);
     virtual ~Juego();
-
-
+    
+    void CargarLaberintos();
+    void iniciarPosicionAvatar() ; 
+    
+    void SetDibujador(Dibujador dibujador);
+    Dibujador GetDibujador() const;
+    void dibujarEsquema();
+    Laberinto GetLaberintoActual() const;
+    void SetAvatar(Avatar avatar);
+    Avatar GetAvatar() const;
+        
 };
 
 #endif	/* JUEGO_H */
