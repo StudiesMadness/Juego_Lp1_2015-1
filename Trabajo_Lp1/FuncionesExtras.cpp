@@ -6,9 +6,11 @@ void historiaDelJuego() {
 }
 
 int opciones_contiene_palabra_mover(char opcion[], const char*pal) {
+
     for (int i = 0; opcion[i]; i++) {
         if (opcion[i] == ' ') opcion[i] = 0;
     }
+	
     return strcmp(opcion, pal);
 }
 
@@ -23,6 +25,7 @@ void mostrarOpcionesGenerales(char &c1, char &c2) {
 	//
 	 
     char opcion[10];
+	
     printf("--Opciones\n");
     printf("- mover x\n");
     printf("                 Arriba:     \"mover u\"\n");
@@ -35,6 +38,7 @@ void mostrarOpcionesGenerales(char &c1, char &c2) {
     printf("- Escriba una accion         :");
     gets(opcion);
     c2 = opcion[strlen(opcion) - 1];
+	
     if (opciones_contiene_palabra_mover(opcion, "mover") == 0) {
         c1 = 'm';
     } else if (strcmp(opcion, "interactuar") == 0) {
