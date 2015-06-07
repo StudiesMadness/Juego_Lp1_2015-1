@@ -13,12 +13,15 @@ int opciones_contiene_palabra_mover(char opcion[], const char*pal) {
 }
 
 void mostrarOpcionesGenerales(char &c1, char &c2) {
+
     // c1 indicara si es m,i,u,s (mover, interactuar , usar , salir))
     // c2 indicar el parametro demas 
     //      en mover c2 seria(u,d,l,r) 
-    //      en interactur falta definir 
+    //      en interactur falta definir
     //      en usar C2 seria i el numero de iten a usar pero en caracter
     //      en salir C2 seria 0 ; 
+	//
+	 
     char opcion[10];
     printf("--Opciones\n");
     printf("- mover x\n");
