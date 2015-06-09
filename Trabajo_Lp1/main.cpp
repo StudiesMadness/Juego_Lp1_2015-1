@@ -54,7 +54,7 @@ int main(int argc, char** argv) {
             nuevoJuevo.intentarmosMoverAvatar(c2);
             if (c2 == 'f') break ; 
         } else if (c1 == 'i') {
-
+            nuevoJuevo.intentamosInteractuarAvatar();
         } else if (c1 == 'u') {
 
         } else if (c1 == 's') {
