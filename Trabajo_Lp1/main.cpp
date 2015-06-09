@@ -39,23 +39,26 @@ int main(int argc, char** argv) {
     char c1, c2;
     historiaDelJuego();
     Juego nuevoJuevo;
+    Dibujador dibujadorNuevo;
+    dibujadorNuevo.SetA(10);
+    dibujadorNuevo.SetB(10);
+    nuevoJuevo.SetDibujador(dibujadorNuevo);
     nuevoJuevo.CargarLaberintos();
     nuevoJuevo.iniciarPosicionAvatar();
-    nuevoJuevo.GetLaberintoActual().impresion();    
+    nuevoJuevo.GetLaberintoActual().impresion(); //<--- elmetodo de impresio(despues borrarlo))
     // nuevoJuevo.GetAvatar().impresionInformacionAvatar() ; 
     while (1) {
-        printf("%45s==Esquema_Avatar==\n"," ");
         nuevoJuevo.dibujarEsquema();
-        printf("%45s==================\n"," ");
         mostrarOpcionesGenerales(c1, c2);
         if (c1 == 'm') {
-            //nuevoJuevo.intentarmosMoverAvatar();
+            nuevoJuevo.intentarmosMoverAvatar(c2);
+            if (c2 == 'f') break ; 
         } else if (c1 == 'i') {
-            
+
         } else if (c1 == 'u') {
 
         } else if (c1 == 's') {
-            printf("Termino el juego\n");
+            printf("CERRADO CON EXITO\n");
             break;
         }
     }

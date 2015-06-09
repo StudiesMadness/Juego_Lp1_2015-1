@@ -10,11 +10,14 @@
 #define SIGUIENTE '+'
 #define MONSTRUO 'M'
 #define ARTEFACTO 'A'
+#define AVATAR 'V'
 #include "GestorLaberinto.h"
 #include "Laberinto.h"
 #include <fstream>
 #include <iostream>
 #include <io.h>
+#include <time.h>
+#include <stdlib.h>
 using namespace std;
 
 GestorLaberinto::GestorLaberinto() {
@@ -35,6 +38,7 @@ Laberinto GestorLaberinto::crear(char *nombreArchivo) {
         cerr << "No se pudo abrir Archivo" << endl;
         return lab;
     }
+    int contM = 2, contA = 2;
     archEntrad >> m >> n;
     lab.setM(m);
     lab.setN(n);
@@ -43,14 +47,34 @@ Laberinto GestorLaberinto::crear(char *nombreArchivo) {
         for (int j = 0; j < n; j++) {
             c = archEntrad.get();
             if (c == '\n') c = archEntrad.get();
-            if (c == ANTERIOR) {
-                lab.setX_Ant(j) ; 
-                lab.setY_Ant(i) ; 
+            if (c == MONSTRUO) {
+                srand(time(NULL));
+                int numb = rand() % 10 + 1;
+                if (numb < 5 && contM > 0) {
+                    c = ' ';
+                    contM--;
+                }
             }
-            if(c == SIGUIENTE){
-                lab.setX_Sig(j) ; 
-                lab.setY_sig(i) ;
-            }            
+            if (c == ARTEFACTO) {
+                srand(time(NULL));
+                int numb = rand() % 10 + 1;
+                if (numb < 5 && contA > 0) {
+                    c = ' ';
+                    contA--;
+                }
+            }
+            if (c == ANTERIOR) {
+                lab.setX_Ant(j);
+                lab.setY_Ant(i);
+            }
+            if (c == SIGUIENTE) {
+                lab.setX_Sig(j);
+                lab.setY_sig(i);
+            }
+            if(c == AVATAR){
+                lab.setX_Avatar(j);
+                lab.setY_Avatar(i);
+            }
             lab.getCelda()[i][j].SetTipo(c);
         }
     }

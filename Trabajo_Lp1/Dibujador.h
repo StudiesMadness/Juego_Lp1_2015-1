@@ -20,8 +20,6 @@ public:
     int GetB() const;
     void SetA(int A);
     int GetA() const;
-
-
 };
 
 #endif	/* DIBUJADOR_H */

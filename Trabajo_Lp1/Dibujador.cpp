@@ -6,13 +6,12 @@
  */
 
 #include "Dibujador.h"
+#include "Avatar.h"
 
 Dibujador::Dibujador() {
-    A = 3 ; 
-    B = 3 ; 
+    A = 3;
+    B = 3;
 }
-
-
 
 Dibujador::~Dibujador() {
 }
@@ -32,4 +31,5 @@ void Dibujador::SetA(int A) {
 int Dibujador::GetA() const {
     return A;
 }
+
 

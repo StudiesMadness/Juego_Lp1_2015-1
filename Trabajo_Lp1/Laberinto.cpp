@@ -10,6 +10,11 @@
 #include <iostream>
 using namespace std ; 
 
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>  
+
 Laberinto::Laberinto() {
     M = 30;
     N = 30;
@@ -33,7 +38,7 @@ Laberinto::~Laberinto() {
 //}
 
 void Laberinto::impresion() {
-    for (int i = 0; i < M; i++) {
+     for (int i = 0; i < M; i++) {
         for (int j = 0; j < N; j++) {
             cout << (char)celda[i][j].GetTipo();
         }
@@ -127,4 +132,16 @@ void Laberinto::setM(int M) {
 
 int Laberinto::getM() const {
     return M;
+}
+void Laberinto::setX_Avatar(int V){
+    this->x_avatar = V;
+}
+int Laberinto::getX_Avatar() const{
+    return x_avatar;
+}
+void Laberinto::setY_Avatar(int V){
+    this->y_avatar = V;
+}
+int Laberinto::getY_Avatar() const{
+    return y_avatar;
 }
