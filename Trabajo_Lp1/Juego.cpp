@@ -49,7 +49,7 @@ void desordenar(int arre[], int N_elementos) {
 
 void Juego::CargarLaberintos() {
     // Tener cuidado al modificar   DEBE HABER DOS SlASH "\\"
-    char cadena[100] = "C:\\Users\\Junior\\Downloads\\Trabajo_Lp1_v0 (1)\\Trabajo_Lp1_v0";
+    char cadena[100] = "C:\\Users\\Joe Natan\\JuegoLp1\\Trabajo_Lp1";
     
     char arreNombArchv[50][50] = {0}, aux[50];
     int cant_Archivos = 0, indices[100] = {0};
@@ -114,14 +114,20 @@ void Juego::dibujarEsquema() {
     int mitad_ancho = this->dibujador.GetA();
     int mitad_alto = this->dibujador.GetB();
     int i_arriba, i_abajo, j_izq, j_der;
+    
     i_arriba = posY_Avatar - mitad_alto;
+    
     if (i_arriba < 0) i_arriba = 0;
     i_abajo = posY_Avatar + mitad_alto;
+    
     if (i_abajo > m - 1) i_abajo = m - 1;
     j_izq = posX_Avatar - mitad_ancho;
+    
     if (j_izq < 0) j_izq = 0;
     j_der = posX_Avatar + mitad_ancho;
+    
     if (j_der > n - 1) j_der = n - 1;
+    
     for (int i = i_arriba; i <= i_abajo; i++) {
         for(int k = 0 ; k<50; k++)printf(" ") ; 
         for (int j = j_izq; j <= j_der; j++) {

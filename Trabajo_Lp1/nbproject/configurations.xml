@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="95">
+<configurationDescriptor version="94">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
@@ -11,6 +11,7 @@
       <itemPath>Celda.h</itemPath>
       <itemPath>Dibujador.h</itemPath>
       <itemPath>Entidad.h</itemPath>
+      <itemPath>FuncionesExtras.h</itemPath>
       <itemPath>GestorLaberinto.h</itemPath>
       <itemPath>Juego.h</itemPath>
       <itemPath>Laberinto.h</itemPath>
@@ -32,6 +33,7 @@
       <itemPath>Celda.cpp</itemPath>
       <itemPath>Dibujador.cpp</itemPath>
       <itemPath>Entidad.cpp</itemPath>
+      <itemPath>FuncionesExtras.cpp</itemPath>
       <itemPath>GestorLaberinto.cpp</itemPath>
       <itemPath>Juego.cpp</itemPath>
       <itemPath>Laberinto.cpp</itemPath>
@@ -89,6 +91,10 @@
       <item path="Entidad.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Entidad.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="FuncionesExtras.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="FuncionesExtras.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="GestorLaberinto.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -164,6 +170,10 @@
       <item path="Entidad.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Entidad.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="FuncionesExtras.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="FuncionesExtras.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="GestorLaberinto.cpp" ex="false" tool="1" flavor2="0">
       </item>
