@@ -10,7 +10,6 @@
 #define SIGUIENTE '+'
 #define MONSTRUO 'M'
 #define ARTEFACTO 'A'
-#define AVATAR 'V'
 #include "GestorLaberinto.h"
 #include "Laberinto.h"
 #include <fstream>
@@ -47,7 +46,15 @@ Laberinto GestorLaberinto::crear(char *nombreArchivo) {
         for (int j = 0; j < n; j++) {
             c = archEntrad.get();
             if (c == '\n') c = archEntrad.get();
-            if (c == MONSTRUO) {
+            if (c == ANTERIOR) {
+                lab.setX_Ant(j) ; 
+                lab.setY_Ant(i) ; 
+            }
+            if(c == SIGUIENTE){
+                lab.setX_Sig(j) ; 
+                lab.setY_sig(i) ;
+            }            
+	    if (c == MONSTRUO) {
                 srand(time(NULL));
                 int numb = rand() % 10 + 1;
                 if (numb < 5 && contM > 0) {
@@ -62,18 +69,6 @@ Laberinto GestorLaberinto::crear(char *nombreArchivo) {
                     c = ' ';
                     contA--;
                 }
-            }
-            if (c == ANTERIOR) {
-                lab.setX_Ant(j);
-                lab.setY_Ant(i);
-            }
-            if (c == SIGUIENTE) {
-                lab.setX_Sig(j);
-                lab.setY_sig(i);
-            }
-            if(c == AVATAR){
-                lab.setX_Avatar(j);
-                lab.setY_Avatar(i);
             }
             lab.getCelda()[i][j].SetTipo(c);
         }

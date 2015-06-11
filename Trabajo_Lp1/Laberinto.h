@@ -22,8 +22,6 @@ private:
     int y_Ant;
     int x_Sig;
     int y_sig;
-    int x_avatar;
-    int y_avatar;
     Celda **celda;
 
 public:
@@ -50,21 +48,14 @@ public:
     // Metodos 
     //  Laberinto creaion(char *);
     void impresion();
-    
     void setY_sig(int y_sig);
     int getY_sig() const;
     void setX_Sig(int x_Sig);
     int getX_Sig() const;
-    
     void setY_Ant(int y_Ant);
     int getY_Ant() const;
     void setX_Ant(int x_Ant);
     int getX_Ant() const;
-    
-    void setX_Avatar(int V);
-    int getX_Avatar() const;
-    void setY_Avatar(int V);
-    int getY_Avatar() const;
 
 
 };
