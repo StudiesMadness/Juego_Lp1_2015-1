@@ -58,7 +58,7 @@ int main(int argc, char** argv) {
             printf("CLOSE SUCCESFULLY\n");
             break;
         }
-        
+        else flag=0;
     }
     return 0;
 }

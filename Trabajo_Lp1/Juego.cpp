@@ -172,7 +172,8 @@ void Juego::dibujarEsquema() {
     //for (int k = 0; k < 40 - (j_der - j_izq) / 2; k++)printf(" ");
     int ai = avatar.GetPosX();
     int aj = avatar.GetPosY();    
-    printf("\n====Esquema_Avatar====\n");
+   // printf("\n====Esquema_Avatar====\n");
+    system("cls"); 
     for (int i = i_arriba; i <= i_abajo; i++) {
         //     for (int k = 0; k < 40 - (j_der - j_izq) / 2; k++)printf(" "); // Para poder centrar el esquema
         for (int j = j_izq; j <= j_der; j++) {
