@@ -10,7 +10,8 @@
 
 void historiaDelJuego() ; 
 void mostrarOpciones(); 
-void mostrarOpcionesGenerales(char &c1, char &c2) ; 
+void mostrarOpcionesGenerales() ; 
+void LecturaMoviento(char &c1);
 
 
 

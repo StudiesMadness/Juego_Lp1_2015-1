@@ -31,20 +31,17 @@ public:
 
     void CargarLaberintos();
     void iniciarPosicionAvatar();
+    void intentarmosMoverAvatar(char& , int&);
 
     void SetDibujador(Dibujador dibujador);
     Dibujador GetDibujador() const;
+    void dibujarEsquema();
+    Laberinto GetLaberintoActual() const;
     void SetAvatar(Avatar avatar);
     Avatar GetAvatar() const;
     void SetPosLaberintoActual(int posLaberintoActual);
     int GetPosLaberintoActual() const;
-    Laberinto GetLaberintoActual() const;
 
-    void dibujarEsquema();
-
-    void intentarmosMoverAvatar(char&);
-    void intentamosInteractuarAvatar(void);
-    void pelearConMonstruo(void);
 };
 
 #endif	/* JUEGO_H */

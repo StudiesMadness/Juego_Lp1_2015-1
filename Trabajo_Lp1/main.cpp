@@ -10,6 +10,12 @@
 #define SIGUIENTE '+'
 #define MONSTRUO 'M'
 #define ARTEFACTO 'A'
+#define FIN 'e'
+
+#define DIR_ARRIBA  'i'
+#define DIR_ABAJO    'k'
+#define DIR_DERECHA   'l'
+#define DIR_IZQUIERDA  'j'
 #include <cstdlib>
 #include <cstdio>
 #include "Juego.h"
@@ -20,23 +26,8 @@ using namespace std;
  * 
  */
 int main(int argc, char** argv) {
-    //   // Prueba 1 
-    //    Juego j; //  Se crea el juego 
-    //    j.CargarLaberintos(); //  cargo todos los archivos el tipo Lab_"NombreDeLaberinto"
-    //    // El elmetodo de crear de GestorLaberintos solo devuelve un laberinto
-    // 
-    //    j.GetLaberintoActual().impresion();
-    //    Avatar brayan;
-    //    brayan.SetPosX(29);
-    //    brayan.SetPosY(29);
-    //    j.SetAvatar(brayan);
-    //    Dibujador de;
-    //    de.SetA(2);
-    //    de.SetB(2);
-    //    j.SetDibujador(de);
-    //    printf("==========\n");
-    //    j.dibujarEsquema();
-    char c1, c2;
+    char c1;
+    int flag=1;
     historiaDelJuego();
     Juego nuevoJuevo;
     Dibujador dibujadorNuevo;
@@ -47,20 +38,27 @@ int main(int argc, char** argv) {
     nuevoJuevo.iniciarPosicionAvatar();
     nuevoJuevo.GetLaberintoActual().impresion(); //<--- elmetodo de impresio(despues borrarlo))
     // nuevoJuevo.GetAvatar().impresionInformacionAvatar() ; 
-    while (1) {
-        nuevoJuevo.dibujarEsquema();
-        mostrarOpcionesGenerales(c1, c2);
-        if (c1 == 'm') {
-            nuevoJuevo.intentarmosMoverAvatar(c2);
-            if (c2 == 'f') break ; 
-        } else if (c1 == 'i') {
-            nuevoJuevo.intentamosInteractuarAvatar();
-        } else if (c1 == 'u') {
-
-        } else if (c1 == 's') {
-            printf("CERRADO CON EXITO\n");
+    while (1) {       
+        if(flag==1){
+            nuevoJuevo.dibujarEsquema();
+            mostrarOpcionesGenerales();
+        }
+        LecturaMoviento(c1);
+        if (c1 == DIR_ARRIBA || c1 ==DIR_ABAJO || c1 == DIR_DERECHA || c1 ==DIR_IZQUIERDA && c1!=FIN) {
+            nuevoJuevo.intentarmosMoverAvatar(c1, flag);   
+            if(c1 == FIN) {
+                printf("YOU WIN :D\n");
+                break;
+            }
+        } else if (c1 == 'a') {  // iteractuira con el moustro
+            printf("Ataca\n") ; 
+        } else if (c1 == 's') {   // usar algo 
+            printf("Saca Objeto\n") ; 
+        } else if (c1 == FIN) {   // Falta reconocoer Escape
+            printf("CLOSE SUCCESFULLY\n");
             break;
         }
+        
     }
     return 0;
 }
