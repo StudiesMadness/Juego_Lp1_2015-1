@@ -20,6 +20,10 @@
 #include <cstdio>
 #include "Juego.h"
 #include "FuncionesExtras.h"
+#include "Monstruo.h"
+#include "Arma.h"
+#include "Armadura.h"
+#include "PocionCuracion.h"
 using namespace std;
 
 /*
@@ -27,7 +31,11 @@ using namespace std;
  */
 int main(int argc, char** argv) {
     char c1;
-    int flag=1;
+    int flag=1, numM, numAC, numAA, numAd, numP;
+    Monstruo *Mons;
+    Arma *ArmA, *ArmC;
+    Armadura *Armd;
+    PocionCuracion *Poc;
     historiaDelJuego();
     Juego nuevoJuevo;
     Dibujador dibujadorNuevo;
@@ -38,6 +46,10 @@ int main(int argc, char** argv) {
     nuevoJuevo.iniciarPosicionAvatar();
     nuevoJuevo.GetLaberintoActual().impresion(); //<--- elmetodo de impresio(despues borrarlo))
     // nuevoJuevo.GetAvatar().impresionInformacionAvatar() ; 
+    CargarMonstruos(Mons, numM);
+    CargarArmas(ArmA, ArmC, numAA, numAC);
+    CargarArmaduras(Armd, numAd);
+    CargarPociones(Poc, numP);
     while (1) {       
         if(flag==1){
             nuevoJuevo.dibujarEsquema();

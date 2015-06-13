@@ -1,8 +1,4 @@
-/* NOMBRE
- * PUNTOSVIDA
- */
-
-
+3
 POCION
 25
 
@@ -11,3 +7,7 @@ MEGAPOCION
 
 ULTAPOCION
 100
+
+/* NOMBRE
+ * PUNTOSVIDA
+ */

@@ -64,7 +64,7 @@ void leerLaberintos(char arreNombArch2[][50], int &cant) {
     ifstream archivoLab("Registro_Laberintos.txt");
     while (1) {
         archivoLab.getline(arreNombArch2[cant], 50);
-        printf("%s\n", arreNombArch2[cant]);
+        //printf("%s\n", arreNombArch2[cant]);
         if (strlen(arreNombArch2[cant]) == 0) break;
 
         cant++;

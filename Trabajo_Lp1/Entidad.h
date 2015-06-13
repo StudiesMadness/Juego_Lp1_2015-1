@@ -18,7 +18,7 @@ private:
     char* nombre;
     Saco saco;
 public:
-    Entidad();
+    Entidad(int max=0, int vida=0);
     Entidad(const Entidad& orig);
     virtual ~Entidad();
     

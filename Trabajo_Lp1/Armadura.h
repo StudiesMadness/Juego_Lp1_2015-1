@@ -14,9 +14,10 @@ private:
     char * nombre;
     
 public:
-    Armadura();
+    Armadura(int def=0);
     Armadura(const Armadura& orig);
     virtual ~Armadura();
+    void AsignarArmadura(int, char*);
 };
 
 #endif	/* ARMADURA_H */

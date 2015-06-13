@@ -6,8 +6,13 @@
  */
 
 #include "Entidad.h"
+#include <cstdio>
 #include <cstring>
-Entidad::Entidad() {
+
+Entidad::Entidad(int max, int vida) {
+    maxVida=max;
+    VidaActual = vida;
+    nombre=NULL;
 }
 
 Entidad::Entidad(const Entidad& orig) {
@@ -24,10 +29,9 @@ Saco Entidad::GetSaco() const {
     return saco;
 }
 
-void Entidad::SetNombre(char* nombre) {
-    
-    this->nombre = new char[strlen(nombre) +1];  
-    strcpy(this->nombre , nombre) ; 
+void Entidad::SetNombre(char* name) {
+    this->nombre = new char[strlen(name) +1];  
+    strcpy(this->nombre , name) ; 
 }
 
 char* Entidad::GetNombre() const {

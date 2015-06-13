@@ -17,10 +17,10 @@ private:
     char* nombre;
 
 public:
-    Arma();
+    Arma(int min=0,int max=0);
     Arma(const Arma& orig);
     virtual ~Arma();
-
+    void AsignarArma(int, int, char*);
 
 };
 
