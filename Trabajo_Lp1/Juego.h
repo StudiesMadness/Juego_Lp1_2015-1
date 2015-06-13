@@ -31,7 +31,11 @@ public:
 
     void CargarLaberintos();
     void iniciarPosicionAvatar();
+    
     void intentarmosMoverAvatar(char& , int&);
+    void intentamosInteractuarAvatar(void);
+    void PreguntarPelearConMonstruo(void);
+
 
     void SetDibujador(Dibujador dibujador);
     Dibujador GetDibujador() const;
