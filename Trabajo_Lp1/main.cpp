@@ -51,7 +51,7 @@ int main(int argc, char** argv) {
                 break;
             }
         } else if (c1 == 'a') {  // iteractuira con el moustro
-            nuevoJuevo.intentamosInteractuarAvatar();
+            printf("Ataca\n") ; 
         } else if (c1 == 's') {   // usar algo 
             printf("Saca Objeto\n") ; 
         } else if (c1 == FIN) {   // Falta reconocoer Escape

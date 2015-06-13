@@ -31,19 +31,14 @@ public:
 
     void CargarLaberintos();
     void iniciarPosicionAvatar();
-    
     void intentarmosMoverAvatar(char& , int&);
-    void intentamosInteractuarAvatar(void);
-    void pelearConMonstruo(void);
 
-    
-    void dibujarEsquema();
-    
     void SetDibujador(Dibujador dibujador);
     Dibujador GetDibujador() const;
+    void dibujarEsquema();
+    Laberinto GetLaberintoActual() const;
     void SetAvatar(Avatar avatar);
     Avatar GetAvatar() const;
-    Laberinto GetLaberintoActual() const;
     void SetPosLaberintoActual(int posLaberintoActual);
     int GetPosLaberintoActual() const;
 
