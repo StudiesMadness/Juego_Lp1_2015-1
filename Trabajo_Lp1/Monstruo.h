@@ -12,12 +12,12 @@
 class Monstruo : public Entidad{
 private:
     int nivel;
-    Entidad datos;
 public:
     Monstruo(int level=0);
-    Monstruo(const Monstruo& orig);
     virtual ~Monstruo();
     void AsignarMons(int, int, int, char*);
+    
+    Entidad GetDatos() const;
 
 };
 

@@ -34,7 +34,7 @@ using namespace std;
  */
 int main(int argc, char** argv) {
     
-    PlaySound(("majora.wav"), NULL, SND_ASYNC); //funcion para iniciar un sonido
+    PlaySound(("castlevania.wav"), NULL, SND_ASYNC); //funcion para iniciar un sonido
     
     char c1;
     int flag=1, numM, numAC, numAA, numAd, numP;
@@ -58,7 +58,7 @@ int main(int argc, char** argv) {
     CargarPociones(Poc, numP);
     
     PlaySound(NULL,NULL,0);  //Funcion para detener un sonido
-    
+    PlaySound(("Doom_2-Level_1.wav"), NULL, SND_ASYNC);
     while (1) {       
         if(flag==1){
             nuevoJuevo.dibujarEsquema();

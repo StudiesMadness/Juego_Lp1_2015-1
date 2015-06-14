@@ -10,13 +10,11 @@
 #include <cstring>
 
 Entidad::Entidad(int max, int vida) {
-    maxVida=max;
+    maxVida = max;
     VidaActual = vida;
-    nombre=NULL;
+    nombre = NULL;
 }
 
-Entidad::Entidad(const Entidad& orig) {
-}
 
 Entidad::~Entidad() {
 }
@@ -30,14 +28,14 @@ Saco Entidad::GetSaco() const {
 }
 
 void Entidad::SetNombre(char* name) {
-    this->nombre = new char[strlen(name) +1];  
-    strcpy(this->nombre , name) ; 
+    this->nombre = new char[strlen(name) + 1];
+    strcpy(this->nombre, name);
 }
 
 char* Entidad::GetNombre() const {
-    char *aux ; 
-    aux = new char[strlen(nombre) +1 ] ; 
-    strcpy(aux , nombre) ; 
+    char *aux;
+    aux = new char[strlen(nombre) + 1 ];
+    strcpy(aux, nombre);
     return aux;
 }
 
@@ -72,4 +70,32 @@ void Entidad::SetPosY(int posY) {
 int Entidad::GetPosY() const {
     return posY;
 }
+
+void Entidad::SetArma(Arma arma) {
+    this->arma = arma;
+}
+
+Arma Entidad::GetArma() const {
+    return arma;
+}
+
+void Entidad::SetArmadura(Armadura armadura) {
+    this->armadura = armadura;
+}
+
+Armadura Entidad::GetArmadura() const {
+    return armadura;
+}
+
+void Entidad::SetDanhoBase(int danhoBase) {
+    this->danhoBase = danhoBase;
+}
+
+int Entidad::GetDanhoBase() const {
+    return danhoBase;
+}
+
+
+
+
 

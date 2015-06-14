@@ -24,6 +24,10 @@
 #include <stdio.h>
 #include <string.h>
 #include<time.h>
+#include <iostream>
+
+#include <WINDOWS.h> 
+#include <MMSystem.h>
 
 using namespace std;
 
@@ -39,8 +43,6 @@ Juego::Juego(const Juego& orig) {
 Juego::~Juego() {
 
 }
-
-
 
 void desordenar(int arre[], int N_elementos) {
     srand(time(NULL));
@@ -112,20 +114,20 @@ void Juego::intentarmosMoverAvatar(char& movimiento, int &flag) {
     }
     //    char s = (char) LaberintoActual.getCelda()[nx][ny].GetTipo() ;
     if (LaberintoActual.getCelda()[ny][nx].GetTipo() == PARED) {
-        flag=0;
+        flag = 0;
     } else if (LaberintoActual.getCelda()[ny][nx].GetTipo() == ADENTRO) {
-        flag=1;
+        flag = 1;
         avatar.SetPosX(nx);
         avatar.SetPosY(ny);
     } else if (LaberintoActual.getCelda()[ny][nx].GetTipo() == ARTEFACTO) {
-        flag=0;
+        flag = 0;
     } else if (LaberintoActual.getCelda()[ny][nx].GetTipo() == MONSTRUO) {
-        flag=0;
+        flag = 0;
     } else if (LaberintoActual.getCelda()[ny][nx].GetTipo() == ANTERIOR) {
         if (posLaberintoActual == 0) {
-            flag=0;//no hace nada
+            flag = 0; //no hace nada
         } else {
-            flag=1;
+            flag = 1;
             posLaberintoActual -= 1;
             LaberintoActual = arreLaberintos[posLaberintoActual];
             avatar.SetPosX(LaberintoActual.getX_Sig());
@@ -133,10 +135,10 @@ void Juego::intentarmosMoverAvatar(char& movimiento, int &flag) {
         }
     } else if (LaberintoActual.getCelda()[ny][nx].GetTipo() == SIGUIENTE) {
         if (posLaberintoActual == cantidadDeLaberintos - 1) {
-            movimiento = FIN;           
-            flag=0;
+            movimiento = FIN;
+            flag = 0;
         } else {
-            flag=1;
+            flag = 1;
             posLaberintoActual += 1;
             LaberintoActual = arreLaberintos[posLaberintoActual];
             avatar.SetPosX(LaberintoActual.getX_Ant());
@@ -163,6 +165,9 @@ void Juego::intentamosInteractuarAvatar(void) {
                     switch (tipo) {
                         case MONSTRUO:
                             PreguntarPelearConMonstruo();
+                            PlaySound(NULL,NULL,0);
+                            PlaySound(("Doom_2-Level_1.wav"), NULL, SND_ASYNC);
+                            k=3;f=3; //para salir del bucle
                             break;
                         case ARTEFACTO:
                             //cogerArtefacto
@@ -176,8 +181,11 @@ void Juego::intentamosInteractuarAvatar(void) {
 }
 
 void Juego::PreguntarPelearConMonstruo(void) {
+    
+    PlaySound(NULL,NULL,0);
+    PlaySound(("Doom_Level_1.wav"), NULL, SND_ASYNC);
     char linea[30];
-
+    Monstruo monster;
     system("cls");
 
     printf(".. .... ....,...  ...+........\n"
@@ -203,12 +211,27 @@ void Juego::PreguntarPelearConMonstruo(void) {
             ".+O$I777II.     ..... ..    .=8$78+I... \n"
             "...=?...7.. .......................~....\n");
 
+    cout << endl << "El monstruo tiene:\n" << endl;
+    cout << "vida: " << monster.GetMaxVida() << endl;
+    cout << "Danho base: " << monster.GetDanhoBase() << endl;
+    if (monster.GetArmadura().GetDefensa() != 0)
+        cout << "armadura:" << monster.GetArmadura().GetDefensa() << endl;
+    else
+        cout << "armadura: No tiene" << endl;
+    if (monster.GetArma().GetDanhoMax() != 0) {
+        cout << "arma (danho max): " << monster.GetArma().GetDanhoMax() << endl;
+        cout << "arma (danho min): " << monster.GetArma().GetDanhoMin() << endl;
+    } else
+        cout << "arma: No tiene" << endl;
+
+    cout << endl << "tienes " << this->GetAvatar().GetVidaActual() << " de vida actual\n" << endl;
+
     printf("\n\nÂ¿Deseas pelear con el monstruo?  ");
     gets(linea);
     int yes, no;
 
     while (1) {
-        yes = (strcmp(linea, "yes") == 0) ? 1 : 0;  //si es igual a "yes"
+        yes = (strcmp(linea, "yes") == 0) ? 1 : 0; //si es igual a "yes"
         no = (strcmp(linea, "no") == 0) ? 1 : 0; // si es igual a "no"
 
         if (yes || no) break; //Si responde correctamente sale del bucle
@@ -217,15 +240,60 @@ void Juego::PreguntarPelearConMonstruo(void) {
         gets(linea);
     }
     if (yes) { // en caso acepte la batalla
-        //se pelea con el monstruo
+        PelearConMonstruo(monster);
     }
+
+}
+
+void Juego::PelearConMonstruo(Monstruo monster) {
+
+    int max = monster.GetArma().GetDanhoMax();
+    int min = monster.GetArma().GetDanhoMin();
+
+    int aleatorioMonster = rand() % (max - min + 1);
+    int danhoM = monster.GetDanhoBase() + aleatorioMonster;
+
+    max = avatar.GetArma().GetDanhoMax();
+    min = avatar.GetArma().GetDanhoMin();
+
+    int aleatorioAvatar = rand() % (max - min + 1);
+    int danhoA = avatar.GetDanhoBase() + aleatorioAvatar;
+
+    while ((avatar.GetVidaActual() > 0) && (monster.GetVidaActual() > 0)) {
+
+        if (avatar.GetArmadura().GetDefensa() != 0) {
+            danhoM = (int) (danhoM * (avatar.GetArmadura().GetDefensa() / 100));
+        }
+
+        int vidaActualAvatar = avatar.GetVidaActual();
+        avatar.SetVidaActual(vidaActualAvatar - danhoM);
+
+        if (monster.GetArmadura().GetDefensa() != 0) {
+
+            danhoA = (int) (danhoA * (monster.GetArmadura().GetDefensa() / 100));
+        }
+        monster.SetVidaActual(monster.GetVidaActual() - danhoA);
+    }
+    if ((avatar.GetVidaActual() <= 0)) {
+        cout << "HAS PERDIDO\n" << endl;
+    } else {
+        cout << "Ganaste la Batalla! Felicitaciones!\n" << endl;
+    }
+    
+    cout << "tienes " << avatar.GetVidaActual() << " de vida\n" << endl;
+
+    cout << "Aprente una tecla para continuar: ";
+    while (cin.get() != '\n');
+
 }
 
 void Juego::SetDibujador(Dibujador dibujador) {
+
     this->dibujador = dibujador;
 }
 
 Dibujador Juego::GetDibujador() const {
+
     return dibujador;
 }
 
@@ -247,14 +315,18 @@ void Juego::dibujarEsquema() {
     if (j_der > n - 1) j_der = n - 1;
     //for (int k = 0; k < 40 - (j_der - j_izq) / 2; k++)printf(" ");
     int ai = avatar.GetPosX();
-    int aj = avatar.GetPosY();    
+    int aj = avatar.GetPosY();
     printf("\n====Esquema_Avatar====\n");
+
+    system("cls");
+
     for (int i = i_arriba; i <= i_abajo; i++) {
         //     for (int k = 0; k < 40 - (j_der - j_izq) / 2; k++)printf(" "); // Para poder centrar el esquema
         for (int j = j_izq; j <= j_der; j++) {
             if (avatar.GetPosX() == j && avatar.GetPosY() == i) {
                 printf("%c", IMAG_AVATAR);
-            } else
+            }
+            else
                 printf("%c", (char) this->LaberintoActual.getCelda()[i][j].GetTipo());
         }
         printf("\n");
@@ -264,18 +336,22 @@ void Juego::dibujarEsquema() {
 }
 
 Laberinto Juego::GetLaberintoActual() const {
+
     return LaberintoActual;
 }
 
 void Juego::SetAvatar(Avatar avatar) {
+
     this->avatar = avatar;
 }
 
 Avatar Juego::GetAvatar() const {
+
     return avatar;
 }
 
 void Juego::SetPosLaberintoActual(int posLaberintoActual) {
+
     this->posLaberintoActual = posLaberintoActual;
 }
 

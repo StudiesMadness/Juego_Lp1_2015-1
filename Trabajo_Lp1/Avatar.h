@@ -8,14 +8,15 @@
 #ifndef AVATAR_H
 #define	AVATAR_H
 
-class Avatar : public Entidad{
+class Avatar : public Entidad {
 private:
-         
 
 public:
     Avatar();
-    Avatar(const Avatar& orig);
+//    Avatar(const Avatar& orig);
     virtual ~Avatar();
+
+
 
 };
 

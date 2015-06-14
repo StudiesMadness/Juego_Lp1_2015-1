@@ -9,9 +9,9 @@
 
 Monstruo::Monstruo(int level) {
     nivel = level;
-}
-
-Monstruo::Monstruo(const Monstruo& orig) {
+    this->SetMaxVida(100*(level+1));
+    this->SetVidaActual(100*(level+1));
+    this->SetDanhoBase(30*(level+1));
 }
 
 Monstruo::~Monstruo() {
@@ -20,7 +20,8 @@ Monstruo::~Monstruo() {
 
 void Monstruo::AsignarMons(int level, int max, int vida, char *name){
     nivel = level;
-    datos.SetNombre(name);
-    datos.SetMaxVida(max);
-    datos.SetVidaActual(vida);
+    this->SetNombre(name);
+    this->SetMaxVida(max);
+    this->SetVidaActual(vida);
 }
+

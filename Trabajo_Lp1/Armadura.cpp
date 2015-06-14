@@ -11,11 +11,8 @@
 #include "Armadura.h"
 
 Armadura::Armadura(int def) {
-    defensa = def;
+    SetDefensa(def);
     nombre = NULL;
-}
-
-Armadura::Armadura(const Armadura& orig) {
 }
 
 Armadura::~Armadura() {
@@ -25,4 +22,12 @@ void Armadura::AsignarArmadura(int def, char *name){
     defensa = def;
     nombre = new char[strlen(name)+1];
     strcpy(nombre, name);
+}
+
+void Armadura::SetDefensa(int defensa) {
+    this->defensa = defensa;
+}
+
+int Armadura::GetDefensa() const {
+    return defensa;
 }

@@ -22,9 +22,6 @@ using namespace std;
 GestorLaberinto::GestorLaberinto() {
 }
 
-GestorLaberinto::GestorLaberinto(const GestorLaberinto& orig) {
-}
-
 GestorLaberinto::~GestorLaberinto() {
 }
 
