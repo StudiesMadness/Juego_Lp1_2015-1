@@ -16,7 +16,7 @@
 #define DIR_ABAJO    'k'
 #define DIR_DERECHA   'l'
 #define DIR_IZQUIERDA  'j'
-
+#include "rlutil.h"
 #include "Juego.h"
 #include <fstream>
 #include <dirent.h>
@@ -68,7 +68,6 @@ void leerLaberintos(char arreNombArch2[][50], int &cant) {
         archivoLab.getline(arreNombArch2[cant], 50);
         //printf("%s\n", arreNombArch2[cant]);
         if (strlen(arreNombArch2[cant]) == 0) break;
-
         cant++;
     }
     archivoLab.close();
@@ -165,9 +164,10 @@ void Juego::intentamosInteractuarAvatar(void) {
                     switch (tipo) {
                         case MONSTRUO:
                             PreguntarPelearConMonstruo();
-                            PlaySound(NULL,NULL,0);
+                            PlaySound(NULL, NULL, 0);
                             PlaySound(("Doom_2-Level_1.wav"), NULL, SND_ASYNC);
-                            k=3;f=3; //para salir del bucle
+                            k = 3;
+                            f = 3; //para salir del bucle
                             break;
                         case ARTEFACTO:
                             //cogerArtefacto
@@ -181,35 +181,35 @@ void Juego::intentamosInteractuarAvatar(void) {
 }
 
 void Juego::PreguntarPelearConMonstruo(void) {
-    
-    PlaySound(NULL,NULL,0);
+
+    PlaySound(NULL, NULL, 0);
     PlaySound(("Doom_Level_1.wav"), NULL, SND_ASYNC);
     char linea[30];
     Monstruo monster;
     system("cls");
 
-    printf(".. .... ....,...  ...+........\n"
-            "........ ...=..     . .I.. ...\n"
-            "...     ...$.   .  . ...7Z..\n"
-            "         .~..  .       .:7.. \n"
-            ".7...:+........O~..    ..     \n"
-            ".         .O7OI77Z$77I7$$7$..           \n"
-            ".... ......7O$8II77$I7887I7$$7.. .. .  .\n"
-            "    ....7+77I$8ZI$O$7O:77$7?+77... .    \n"
-            "......87++I$77:+++I7?==ZZIZ?IZ8$7$. .   \n"
-            " . .877OI7=Z7IN~IZ8.8.8IO,7777$7O7I..   \n"
-            "...7$777$7Z8..8O8DZI8O8.O$777O$$$$$$....\n"
+    printf("                                         \n"
+            "                                         \n"
+            "                                         \n"
+            "                                         \n"
+            "                                         \n"
+            ".          O7OI77Z$77I7$$7$.           \n"
+            "         .77O$8II77$I7887I7$$7          \n"
+            "       .7+77I$8ZI$O$7O:77$7?+77..       \n"
+            "     .87++I$77:+++I7?==ZZIZ?IZ8$7$.     \n"
+            "   .877OI7=Z7IN~IZ8.8.8IO,7777$7O7I.   \n"
+            "  .7$777$7Z8..8O8DZI8O8.O$777O$$$$$$..  \n"
             " .$$7$$$$I$ON,.O.~Z~~+~8I7$7$Z7$OD=??7. \n"
-            "..O+$+Z$78ID8Z$=7777$=+I777$$778?O?$?+,.\n"
+            " .O+$+Z$78ID8Z$=7777$=+I777$$778?O?$?+,.\n"
             ".?Z?OI?O$7OZ7I$$7I7$7$7777O$77$Z.,+I78..\n"
             ".++8II+Z$77ZO$7777$7I7$$$$7777$:.       \n"
-            "......~7$77777$$Z8O$$$7777777$Z77O......\n"
-            "...O$Z7$Z77$777777777777777Z$O$O$$I..   \n"
-            "..:777777Z$$$77777$I77777$$$$777IIZ7... \n"
+            "    .~7$77777$$Z8O$$$7777777$Z77O..     \n"
+            "  .O$Z7$Z77$777777777777777Z$O$O$$I..   \n"
+            " .:777777Z$$$77777$I77777$$$$777IIZ7.   \n"
             " .II77777$.78Z$$$$$$Z$$$$8O.77777777O.. \n"
             " .I77777$7. ..Z$$ZZ$$ZZZ....$OI77III$$. \n"
-            ".+O$I777II.     ..... ..    .=8$78+I... \n"
-            "...=?...7.. .......................~....\n");
+            ".+O$I777II.     ..... ..     .=8$78+I    \n"
+            "                                         \n");
 
     cout << endl << "El monstruo tiene:\n" << endl;
     cout << "vida: " << monster.GetMaxVida() << endl;
@@ -226,7 +226,7 @@ void Juego::PreguntarPelearConMonstruo(void) {
 
     cout << endl << "tienes " << this->GetAvatar().GetVidaActual() << " de vida actual\n" << endl;
 
-    printf("\n\nÂ¿Deseas pelear con el monstruo?  ");
+    printf("\n\n Deseas pelear con el monstruo?  ");
     gets(linea);
     int yes, no;
 
@@ -236,7 +236,7 @@ void Juego::PreguntarPelearConMonstruo(void) {
 
         if (yes || no) break; //Si responde correctamente sale del bucle
 
-        printf("Tienes que escribir \"yes\" o \"no\" : \n");
+        printf("Tienes que escribir \"yes\" o \"no\" :  ");
         gets(linea);
     }
     if (yes) { // en caso acepte la batalla
@@ -279,7 +279,7 @@ void Juego::PelearConMonstruo(Monstruo monster) {
     } else {
         cout << "Ganaste la Batalla! Felicitaciones!\n" << endl;
     }
-    
+
     cout << "tienes " << avatar.GetVidaActual() << " de vida\n" << endl;
 
     cout << "Aprente una tecla para continuar: ";
@@ -316,21 +316,30 @@ void Juego::dibujarEsquema() {
     //for (int k = 0; k < 40 - (j_der - j_izq) / 2; k++)printf(" ");
     int ai = avatar.GetPosX();
     int aj = avatar.GetPosY();
-    printf("\n====Esquema_Avatar====\n");
-
     system("cls");
-
     for (int i = i_arriba; i <= i_abajo; i++) {
         //     for (int k = 0; k < 40 - (j_der - j_izq) / 2; k++)printf(" "); // Para poder centrar el esquema
+        
         for (int j = j_izq; j <= j_der; j++) {
+            char celda = (char) this->LaberintoActual.getCelda()[i][j].GetTipo();
             if (avatar.GetPosX() == j && avatar.GetPosY() == i) {
+                rlutil::setColor(114);
                 printf("%c", IMAG_AVATAR);
+            } else if (celda == '-' ||   celda == '+') {
+                rlutil::setColor(121); // Entra  y Sale
+                printf("%c", celda);
+            } else if (celda == 'M' ||
+                    celda == 'A') {
+                rlutil::setColor(124);
+                printf("%c", celda);
+            } else {
+                rlutil::setColor(112); // 96 176 112
+                printf("%c",celda);
             }
-            else
-                printf("%c", (char) this->LaberintoActual.getCelda()[i][j].GetTipo());
         }
         printf("\n");
     }
+    rlutil::setColor(7); // Restablece Co
     //   for (int k = 0; k < 40 - (j_der - j_izq) / 2; k++)printf(" ");
     //printf("====Esquema_Avatar====\n");
 }

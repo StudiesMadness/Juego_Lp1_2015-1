@@ -50,7 +50,7 @@ int main(int argc, char** argv) {
     nuevoJuevo.SetDibujador(dibujadorNuevo);
     nuevoJuevo.CargarLaberintos();
     nuevoJuevo.iniciarPosicionAvatar();
-    nuevoJuevo.GetLaberintoActual().impresion(); //<--- elmetodo de impresio(despues borrarlo))
+   // nuevoJuevo.GetLaberintoActual().impresion(); //<--- elmetodo de impresio(despues borrarlo))
     // nuevoJuevo.GetAvatar().impresionInformacionAvatar() ; 
     CargarMonstruos(Mons, numM);
     CargarArmas(ArmA, ArmC, numAA, numAC);
@@ -62,8 +62,10 @@ int main(int argc, char** argv) {
     while (1) {       
         if(flag==1){
             nuevoJuevo.dibujarEsquema();
-            mostrarOpcionesGenerales();
+//            nuevoJuevo.GetDibujador().
+            mostrarOpcionesGenerales();                
         }
+        
         LecturaMoviento(c1);
         if (c1 == DIR_ARRIBA || c1 ==DIR_ABAJO || c1 == DIR_DERECHA || c1 ==DIR_IZQUIERDA && c1!=FIN) {
             nuevoJuevo.intentarmosMoverAvatar(c1, flag);   
