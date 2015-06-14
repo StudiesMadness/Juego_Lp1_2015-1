@@ -24,12 +24,18 @@
 #include "Arma.h"
 #include "Armadura.h"
 #include "PocionCuracion.h"
+
+#include <WINDOWS.h> 
+#include <MMSystem.h>
 using namespace std;
 
 /*
  * 
  */
 int main(int argc, char** argv) {
+    
+    PlaySound(("majora.wav"), NULL, SND_ASYNC); //funcion para iniciar un sonido
+    
     char c1;
     int flag=1, numM, numAC, numAA, numAd, numP;
     Monstruo *Mons;
@@ -50,6 +56,9 @@ int main(int argc, char** argv) {
     CargarArmas(ArmA, ArmC, numAA, numAC);
     CargarArmaduras(Armd, numAd);
     CargarPociones(Poc, numP);
+    
+    PlaySound(NULL,NULL,0);  //Funcion para detener un sonido
+    
     while (1) {       
         if(flag==1){
             nuevoJuevo.dibujarEsquema();
