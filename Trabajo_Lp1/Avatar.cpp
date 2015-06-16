@@ -6,6 +6,9 @@
  */
 #include "Entidad.h"
 #include "Avatar.h"
+#include <iostream>
+
+using namespace std;
 
 Avatar::Avatar() {
     this->SetPosX(3);
@@ -24,4 +27,7 @@ Avatar::Avatar() {
 Avatar::~Avatar() {
 }
 
-
+void Avatar::mostrarDatosMapa() {
+    cout << "Vida: " << this->GetVidaActual() << endl;
+    cout << "X: " << this->GetPosX() << " " << "Y: " << this->GetPosY() << endl;
+}

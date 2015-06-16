@@ -16,7 +16,7 @@ public:
 //    Avatar(const Avatar& orig);
     virtual ~Avatar();
 
-
+    void  mostrarDatosMapa();
 
 };
 
