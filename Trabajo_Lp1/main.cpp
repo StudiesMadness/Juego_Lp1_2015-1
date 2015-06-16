@@ -50,7 +50,11 @@ int main(int argc, char** argv) {
     nuevoJuevo.SetDibujador(dibujadorNuevo);
     nuevoJuevo.CargarLaberintos();
     nuevoJuevo.iniciarPosicionAvatar();
+<<<<<<< HEAD
     //nuevoJuevo.GetLaberintoActual().impresion(); //<--- elmetodo de impresio(despues borrarlo))
+=======
+    nuevoJuevo.GetLaberintoActual().impresion(); //<--- elmetodo de impresio(despues borrarlo))
+>>>>>>> origin/master
     // nuevoJuevo.GetAvatar().impresionInformacionAvatar() ; 
     CargarMonstruos(Mons, numM);
     CargarArmas(ArmA, ArmC, numAA, numAC);
@@ -62,9 +66,19 @@ int main(int argc, char** argv) {
     while (1) {       
         if(flag==1){
             nuevoJuevo.dibujarEsquema();
+<<<<<<< HEAD
             //nuevoJuevo.GetDibujador();
             mostrarOpcionesGenerales();
 
+=======
+<<<<<<< HEAD
+            nuevoJuevo.GetAvatar().mostrarDatosMapa();
+//            nuevoJuevo.GetDibujador().
+            mostrarOpcionesGenerales();                
+=======
+            mostrarOpcionesGenerales();
+>>>>>>> parent of 692f882... Puse colores a la impresión
+>>>>>>> origin/master
         }
         LecturaMoviento(c1);
         if (c1 == DIR_ARRIBA || c1 ==DIR_ABAJO || c1 == DIR_DERECHA || c1 ==DIR_IZQUIERDA && c1!=FIN) {
