@@ -62,6 +62,7 @@ int main(int argc, char** argv) {
     while (1) {       
         if(flag==1){
             nuevoJuevo.dibujarEsquema();
+            nuevoJuevo.GetAvatar().mostrarDatosMapa();
 //            nuevoJuevo.GetDibujador().
             mostrarOpcionesGenerales();                
         }
