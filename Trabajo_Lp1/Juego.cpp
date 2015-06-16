@@ -16,7 +16,7 @@
 #define DIR_ABAJO    'k'
 #define DIR_DERECHA   'l'
 #define DIR_IZQUIERDA  'j'
-#include "rlutil.h"
+
 #include "Juego.h"
 #include <fstream>
 #include <dirent.h>
@@ -25,7 +25,7 @@
 #include <string.h>
 #include<time.h>
 #include <iostream>
-
+#include "rlutil.h"
 
 #include <WINDOWS.h> 
 #include <MMSystem.h>
@@ -69,6 +69,7 @@ void leerLaberintos(char arreNombArch2[][50], int &cant) {
         archivoLab.getline(arreNombArch2[cant], 50);
         //printf("%s\n", arreNombArch2[cant]);
         if (strlen(arreNombArch2[cant]) == 0) break;
+
         cant++;
     }
     archivoLab.close();
@@ -189,23 +190,25 @@ void Juego::PreguntarPelearConMonstruo(void) {
     Monstruo monster;
     system("cls");
 
-    printf( ".          O7OI77Z$77I7$$7$.           \n"
+
+    printf(".          O7OI77Z$77I7$$7$.           \n"
             "         .77O$8II77$I7887I7$$7          \n"
             "       .7+77I$8ZI$O$7O:77$7?+77..       \n"
             "     .87++I$77:+++I7?==ZZIZ?IZ8$7$.     \n"
             "   .877OI7=Z7IN~IZ8.8.8IO,7777$7O7I.   \n"
             "  .7$777$7Z8..8O8DZI8O8.O$777O$$$$$$..  \n"
+
             " .$$7$$$$I$ON,.O.~Z~~+~8I7$7$Z7$OD=??7. \n"
-            " .O+$+Z$78ID8Z$=7777$=+I777$$778?O?$?+,.\n"
+            "..O+$+Z$78ID8Z$=7777$=+I777$$778?O?$?+,.\n"
             ".?Z?OI?O$7OZ7I$$7I7$7$7777O$77$Z.,+I78..\n"
             ".++8II+Z$77ZO$7777$7I7$$$$7777$:.       \n"
-            "    .~7$77777$$Z8O$$$7777777$Z77O..     \n"
-            "  .O$Z7$Z77$777777777777777Z$O$O$$I..   \n"
-            " .:777777Z$$$77777$I77777$$$$777IIZ7.   \n"
+            "......~7$77777$$Z8O$$$7777777$Z77O......\n"
+            "...O$Z7$Z77$777777777777777Z$O$O$$I..   \n"
+            "..:777777Z$$$77777$I77777$$$$777IIZ7... \n"
             " .II77777$.78Z$$$$$$Z$$$$8O.77777777O.. \n"
             " .I77777$7. ..Z$$ZZ$$ZZZ....$OI77III$$. \n"
-            ".+O$I777II.     ..... ..     .=8$78+I    \n"
-            "                                         \n");
+            ".+O$I777II.     ..... ..    .=8$78+I... \n"
+            "...=?...7.. .......................~....\n");
 
     cout << endl << "El monstruo tiene:\n" << endl;
     cout << "vida: " << monster.GetMaxVida() << endl;
@@ -222,7 +225,7 @@ void Juego::PreguntarPelearConMonstruo(void) {
 
     cout << endl << "tienes " << this->GetAvatar().GetVidaActual() << " de vida actual\n" << endl;
 
-    printf("\n\n Deseas pelear con el monstruo?  ");
+    printf("\n\nÂ¿Deseas pelear con el monstruo?  ");
     gets(linea);
     int yes, no;
 
@@ -232,7 +235,7 @@ void Juego::PreguntarPelearConMonstruo(void) {
 
         if (yes || no) break; //Si responde correctamente sale del bucle
 
-        printf("Tienes que escribir \"yes\" o \"no\" :  ");
+        printf("Tienes que escribir \"yes\" o \"no\" : \n");
         gets(linea);
     }
     if (yes) { // en caso acepte la batalla
@@ -283,11 +286,9 @@ void Juego::PelearConMonstruo(Monstruo monster) {
 
 }
 
-void Juego::meterAlSaco(){
-    
-}
- 
+void Juego::meterAlSaco() {
 
+}
 
 void Juego::SetDibujador(Dibujador dibujador) {
 
@@ -318,16 +319,19 @@ void Juego::dibujarEsquema() {
     //for (int k = 0; k < 40 - (j_der - j_izq) / 2; k++)printf(" ");
     int ai = avatar.GetPosX();
     int aj = avatar.GetPosY();
+    printf("\n====Esquema_Avatar====\n");
+
     system("cls");
+
     for (int i = i_arriba; i <= i_abajo; i++) {
+
         //     for (int k = 0; k < 40 - (j_der - j_izq) / 2; k++)printf(" "); // Para poder centrar el esquema
-        
         for (int j = j_izq; j <= j_der; j++) {
             char celda = (char) this->LaberintoActual.getCelda()[i][j].GetTipo();
             if (avatar.GetPosX() == j && avatar.GetPosY() == i) {
                 rlutil::setColor(114);
                 printf("%c", IMAG_AVATAR);
-            } else if (celda == '-' ||   celda == '+') {
+            } else if (celda == '-' || celda == '+') {
                 rlutil::setColor(121); // Entra  y Sale
                 printf("%c", celda);
             } else if (celda == 'M' ||
@@ -336,7 +340,7 @@ void Juego::dibujarEsquema() {
                 printf("%c", celda);
             } else {
                 rlutil::setColor(112); // 96 176 112
-                printf("%c",celda);
+                printf("%c", celda);
             }
         }
         printf("\n");
