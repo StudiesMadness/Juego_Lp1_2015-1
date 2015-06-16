@@ -26,6 +26,7 @@
 #include<time.h>
 #include <iostream>
 
+
 #include <WINDOWS.h> 
 #include <MMSystem.h>
 
@@ -188,12 +189,7 @@ void Juego::PreguntarPelearConMonstruo(void) {
     Monstruo monster;
     system("cls");
 
-    printf("                                         \n"
-            "                                         \n"
-            "                                         \n"
-            "                                         \n"
-            "                                         \n"
-            ".          O7OI77Z$77I7$$7$.           \n"
+    printf( ".          O7OI77Z$77I7$$7$.           \n"
             "         .77O$8II77$I7887I7$$7          \n"
             "       .7+77I$8ZI$O$7O:77$7?+77..       \n"
             "     .87++I$77:+++I7?==ZZIZ?IZ8$7$.     \n"
@@ -286,6 +282,12 @@ void Juego::PelearConMonstruo(Monstruo monster) {
     while (cin.get() != '\n');
 
 }
+
+void Juego::meterAlSaco(){
+    
+}
+ 
+
 
 void Juego::SetDibujador(Dibujador dibujador) {
 

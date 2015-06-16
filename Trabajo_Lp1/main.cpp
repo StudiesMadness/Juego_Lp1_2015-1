@@ -25,13 +25,13 @@
 #include "Armadura.h"
 #include "PocionCuracion.h"
 
+
 #include <WINDOWS.h> 
 #include <MMSystem.h>
 using namespace std;
 
-/*
- * 
- */
+
+ 
 int main(int argc, char** argv) {
     
     PlaySound(("castlevania.wav"), NULL, SND_ASYNC); //funcion para iniciar un sonido

@@ -35,8 +35,9 @@ public:
     void intentarmosMoverAvatar(char& , int&);
     void intentamosInteractuarAvatar(void);
     void PreguntarPelearConMonstruo(void);
-    void PelearConMonstruo(Monstruo monster);
-
+    void PelearConMonstruo(Monstruo monster);   
+    void meterAlSaco();
+    
     void SetDibujador(Dibujador dibujador);
     Dibujador GetDibujador() const;
     void dibujarEsquema();

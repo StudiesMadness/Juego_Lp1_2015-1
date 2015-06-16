@@ -21,6 +21,7 @@ private:
     int danhoBase;
     char* nombre;
     Saco saco;
+    int items;
     Armadura armadura;
     Arma arma;    
     
