@@ -11,10 +11,12 @@
 class PocionCuracion : public Artefacto{
 private:
     int puntosVida;
+    char *nombre;
 public:
-    PocionCuracion();
+    PocionCuracion(int ptos=0);
     PocionCuracion(const PocionCuracion& orig);
     virtual ~PocionCuracion();
+    void AsignarPocion(int, char*);
 };
 
 #endif	/* POCIONCURACION_H */

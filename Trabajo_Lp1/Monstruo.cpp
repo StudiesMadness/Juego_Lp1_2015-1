@@ -7,13 +7,21 @@
 #include "Entidad.h"
 #include "Monstruo.h"
 
-Monstruo::Monstruo() {
-}
-
-Monstruo::Monstruo(const Monstruo& orig) {
+Monstruo::Monstruo(int level) {
+    nivel = level;
+    this->SetMaxVida(100*(level+1));
+    this->SetVidaActual(100*(level+1));
+    this->SetDanhoBase(30*(level+1));
 }
 
 Monstruo::~Monstruo() {
 
+}
+
+void Monstruo::AsignarMons(int level, int max, int vida, char *name){
+    nivel = level;
+    this->SetNombre(name);
+    this->SetMaxVida(max);
+    this->SetVidaActual(vida);
 }
 

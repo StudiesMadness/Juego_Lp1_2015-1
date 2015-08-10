@@ -22,14 +22,21 @@ private:
     GestorLaberinto gestorLaberinto;
     Laberinto LaberintoActual;
     int posLaberintoActual;
+    int cantidadDeLaberintos;
     Laberinto *arreLaberintos;
 public:
     Juego();
     Juego(const Juego& orig);
     virtual ~Juego();
-    
+
     void CargarLaberintos();
-    void iniciarPosicionAvatar() ; 
+    void iniciarPosicionAvatar();
+    
+    void intentarmosMoverAvatar(char& , int&);
+    void intentamosInteractuarAvatar(void);
+    void PreguntarPelearConMonstruo(void);
+    void PelearConMonstruo(Monstruo monster);   
+    void meterAlSaco();
     
     void SetDibujador(Dibujador dibujador);
     Dibujador GetDibujador() const;
@@ -37,7 +44,9 @@ public:
     Laberinto GetLaberintoActual() const;
     void SetAvatar(Avatar avatar);
     Avatar GetAvatar() const;
-        
+    void SetPosLaberintoActual(int posLaberintoActual);
+    int GetPosLaberintoActual() const;
+
 };
 
 #endif	/* JUEGO_H */

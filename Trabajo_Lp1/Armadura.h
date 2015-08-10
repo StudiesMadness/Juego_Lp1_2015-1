@@ -14,9 +14,12 @@ private:
     char * nombre;
     
 public:
-    Armadura();
-    Armadura(const Armadura& orig);
+    Armadura(int def=0);
     virtual ~Armadura();
+    void AsignarArmadura(int, char*);
+    
+    void SetDefensa(int defensa);
+    int GetDefensa() const;
 };
 
 #endif	/* ARMADURA_H */

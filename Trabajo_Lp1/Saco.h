@@ -11,11 +11,11 @@
 
 class Saco {
 private:
-    Artefacto artefacto[];
+    Artefacto artefacto[10]; //genera un máximo de 10 artefactos en la bolsa
 public:
     Saco();
-    Saco(const Saco& orig);
     virtual ~Saco();
+
 };
 
 #endif	/* SACO_H */

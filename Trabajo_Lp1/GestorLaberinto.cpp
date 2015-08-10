@@ -15,12 +15,11 @@
 #include <fstream>
 #include <iostream>
 #include <io.h>
+#include <time.h>
+#include <stdlib.h>
 using namespace std;
 
 GestorLaberinto::GestorLaberinto() {
-}
-
-GestorLaberinto::GestorLaberinto(const GestorLaberinto& orig) {
 }
 
 GestorLaberinto::~GestorLaberinto() {
@@ -35,6 +34,7 @@ Laberinto GestorLaberinto::crear(char *nombreArchivo) {
         cerr << "No se pudo abrir Archivo" << endl;
         return lab;
     }
+    int contM = 2, contA = 2;
     archEntrad >> m >> n;
     lab.setM(m);
     lab.setN(n);
@@ -51,6 +51,22 @@ Laberinto GestorLaberinto::crear(char *nombreArchivo) {
                 lab.setX_Sig(j) ; 
                 lab.setY_sig(i) ;
             }            
+	    if (c == MONSTRUO) {
+                srand(time(NULL));
+                int numb = rand() % 10 + 1;
+                if (numb < 5 && contM > 0) {
+                    c = ' ';
+                    contM--;
+                }
+            }
+            if (c == ARTEFACTO) {
+                srand(time(NULL));
+                int numb = rand() % 10 + 1;
+                if (numb < 5 && contA > 0) {
+                    c = ' ';
+                    contA--;
+                }
+            }
             lab.getCelda()[i][j].SetTipo(c);
         }
     }

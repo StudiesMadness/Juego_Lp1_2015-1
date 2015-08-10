@@ -13,7 +13,6 @@ private:
 
 public:
     Artefacto();
-    Artefacto(const Artefacto& orig);
     virtual ~Artefacto();        
 };
 

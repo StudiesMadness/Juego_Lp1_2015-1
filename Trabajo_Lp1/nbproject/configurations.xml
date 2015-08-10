@@ -63,6 +63,12 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <linkerTool>
+          <commandlineTool>g++</commandlineTool>
+          <linkerLibItems>
+            <linkerLibLibItem>winmm</linkerLibLibItem>
+          </linkerLibItems>
+        </linkerTool>
       </compileType>
       <item path="Arma.cpp" ex="false" tool="1" flavor2="0">
       </item>

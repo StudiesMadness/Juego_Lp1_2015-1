@@ -10,9 +10,6 @@
 Saco::Saco() {
 }
 
-Saco::Saco(const Saco& orig) {
-}
 
 Saco::~Saco() {
 }
-

@@ -16,7 +16,6 @@ private:
 public:
     Laberinto crear(char *);
     GestorLaberinto();
-    GestorLaberinto(const GestorLaberinto& orig);
     virtual ~GestorLaberinto();
 };
 

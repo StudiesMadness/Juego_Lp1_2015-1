@@ -10,8 +10,6 @@
 Artefacto::Artefacto() {
 }
 
-Artefacto::Artefacto(const Artefacto& orig) {
-}
 
 Artefacto::~Artefacto() {
 }
