@@ -16,6 +16,7 @@ using namespace std ;
 #include <time.h>  
 
 Laberinto::Laberinto() {
+    printf("wat do?");
     M = 30;
     N = 30;
     pctArtefacto = 0;
