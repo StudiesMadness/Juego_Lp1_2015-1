@@ -19,6 +19,7 @@ Monstruo::~Monstruo() {
 }
 
 void Monstruo::AsignarMons(int level, int max, int vida, char *name){
+    printf("MONTRUOOOOOOOOOOS");
     nivel = level;
     this->SetNombre(name);
     this->SetMaxVida(max);
