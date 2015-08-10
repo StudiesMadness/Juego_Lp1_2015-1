@@ -66,7 +66,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=
+LDLIBSOPTIONS=-lwinmm
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -74,7 +74,11 @@ LDLIBSOPTIONS=
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/trabajo_lp1.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
+<<<<<<< HEAD
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/trabajo_lp1 ${OBJECTFILES} ${LDLIBSOPTIONS}
+=======
+	g++ -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/trabajo_lp1 ${OBJECTFILES} ${LDLIBSOPTIONS}
+>>>>>>> origin/paralelo
 
 ${OBJECTDIR}/Arma.o: Arma.cpp 
 	${MKDIR} -p ${OBJECTDIR}
